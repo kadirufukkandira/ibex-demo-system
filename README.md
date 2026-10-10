@@ -1,3 +1,22 @@
+# PYNQ-Z2 port
+
+This fork adds support for the TUL PYNQ-Z2 board (Zynq-7020) to the lowRISC Ibex Demo System.
+
+Changes:
+- `synth_pynqz2` FuseSoC target in `ibex_demo_system.core`
+- `rtl/fpga/top_pynqz2.sv`: board top level (4 LEDs, 2 RGB LEDs, buttons, switches; BTN3 is reset)
+- `rtl/fpga/clkgen_pynqz2.sv`: 125 MHz board clock to 50 MHz system clock
+- `data/pins_pynqz2.xdc`: pin constraints; UART on Pmod JB (JB2 TX, JB3 RX)
+- `pulp_riscv_dbg.core`: Xilinx BSCANE debug TAP enabled for the new target
+
+Build:
+
+    fusesoc --cores-root=. run --target=synth_pynqz2 --setup --build lowrisc:ibex:demo_system --SRAMInitFile=$PWD/sw/c/build/demo/hello_world/demo.vmem
+
+Tested on hardware with the hello_world demo. A prebuilt bitstream is in `bitstreams/`.
+
+---
+
 # Ibex Demo System
 
 ![Ibex demo system block diagram](doc/IbexDemoSystemBlockDiagram.png "Ibex demo system block diagram with in the center an Ibex processor connected by a memory bus to the RAM, GPIO, SPI, UART and debug module. Switches, buttons and LEDs are connected to the GPIO. The LCD is driven by SPI. The UART is used for a serial console. Finally, the debug module is used to drive the JTAG.")

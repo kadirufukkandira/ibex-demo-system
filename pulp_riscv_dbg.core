@@ -46,6 +46,7 @@ targets:
       - target_synth_cw305 ? (files_xilinx_bscane_tap)
       - target_synth_cw312a35 ? (files_xilinx_bscane_tap)
       - target_synth_blackboard ? (files_xilinx_bscane_tap)
+      - target_synth_pynqz2 ? (files_xilinx_bscane_tap)
       - target_synth_boolean ? (files_xilinx_bscane_tap)
       - target_synth_nexysa7 ? (files_xilinx_bscane_tap)
       - target_synth_artys7-25 ? (files_xilinx_bscane_tap)
